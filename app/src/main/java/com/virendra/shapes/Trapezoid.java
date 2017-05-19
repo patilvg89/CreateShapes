@@ -13,43 +13,27 @@ import android.view.View;
  * Created by virendra
  */
 
-public class Shape extends View {
+public class Trapezoid extends View {
 
-    public Shape(Context context) {
+    public Trapezoid(Context context) {
         super(context);
     }
 
-    public Shape(Context context, AttributeSet attrs) {
+    public Trapezoid(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public Shape(Context context, AttributeSet attrs, int defStyle) {
+    public Trapezoid(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
 
-    private Path Hexagon() {
-        float midx = getWidth() / 2;
-        float midy = getHeight() / 2;
-        Path p = new Path();
-        p.moveTo(midx, midy);
-        p.lineTo(midx + 150, midy + 220);
-        p.lineTo(midx, midy + 220);
-        p.lineTo(midx - 150, midy + 220);
-        p.lineTo(midx - 300, midy);
-        p.lineTo(midx - 150, midy - 220);
-        p.lineTo(midx + 150, midy - 220);
-        p.lineTo(midx + 300, midy);
-        p.lineTo(midx + 150, midy + 220);
-        return p;
-    }
 
     @Override
     protected void onDraw(Canvas canvas) {
         Path clipPath = new Path();
         clipPath.addPath(trapezoid());
-        //clipPath.addPath(Hexagon());
         canvas.clipPath(clipPath);
-        canvas.drawColor(Color.WHITE);
+        canvas.drawColor(Color.MAGENTA);
 
         super.onDraw(canvas);
     }
